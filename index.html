@@ -1,6 +1,300 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to https://uithemer.github.io/sailfishos-uithemer/</title>
-<meta http-equiv="refresh" content="0; URL=https://uithemer.github.io/sailfishos-uithemer/">
-<link rel="canonical" href="https://uithemer.github.io/sailfishos-uithemer/">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI Themer — Sailfish OS customization</title>
+  <meta name="description" content="Customize icons, fonts, sounds and pixel density on Sailfish OS.">
+  <link rel="canonical" href="https://uithemer.github.io/">
+  <style>
+    :root {
+      --bg-deep: #0a1628;
+      --bg-card: #12243d;
+      --accent: #3dace3;
+      --accent-hover: #5bc4f5;
+      --text: #e8f0f8;
+      --text-muted: #9bb4cc;
+      --border: rgba(61, 172, 227, 0.25);
+      --radius: 12px;
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg-deep);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(61, 172, 227, 0.18), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 100%, rgba(61, 172, 227, 0.08), transparent);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    .wrap {
+      width: min(960px, 92vw);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      padding: 1.5rem 0 0.5rem;
+    }
+
+    .logo {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    main {
+      padding: 2rem 0 4rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      margin: 0 0 1.75rem;
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 32ch;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-deep);
+      box-shadow: 0 4px 16px rgba(61, 172, 227, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      color: var(--bg-deep);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(61, 172, 227, 0.45);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(61, 172, 227, 0.1);
+      color: var(--accent-hover);
+      border-color: var(--accent);
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone-frame {
+      max-width: 220px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow), 0 0 0 1px var(--border);
+      background: var(--bg-card);
+    }
+
+    .phone-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    .features {
+      margin-top: 3.5rem;
+      padding: 2rem;
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .features h2 {
+      margin: 0 0 1rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 0.75rem 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    @media (min-width: 520px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .feature-grid li {
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text);
+    }
+
+    .feature-grid li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .links-row {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.5rem;
+      font-size: 0.9375rem;
+    }
+
+    .links-row a {
+      color: var(--text-muted);
+    }
+
+    .links-row a:hover {
+      color: var(--accent-hover);
+    }
+
+    footer {
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0.25rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="logo">uithemer</div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>UI Themer</h1>
+        <p class="tagline">
+          Customize icons, fonts, sounds, and pixel density on Sailfish&nbsp;OS — a graphical interface for theme pack support.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/sailfishos-uithemer/">Documentation</a>
+          <a class="btn btn-secondary" href="https://github.com/uithemer/sailfishos-uithemer">GitHub</a>
+        </div>
+        <nav class="links-row" aria-label="More resources">
+          <a href="https://openrepos.net/content/fravaccaro/ui-themer">OpenRepos</a>
+          <a href="https://github.com/uithemer/sailfishos-uithemer/releases/latest">Releases</a>
+          <a href="https://www.transifex.com/fravaccaro/ui-themer/dashboard/">Translate</a>
+        </nav>
+      </div>
+      <div class="hero-visual">
+        <figure class="phone-frame">
+          <img
+            src="https://uithemer.github.io/sailfishos-uithemer/docs/screenshot1.png"
+            alt="UI Themer on Sailfish OS"
+            width="360"
+            height="640"
+            loading="eager"
+          >
+        </figure>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading">What you can do</h2>
+      <ul class="feature-grid">
+        <li>Icon theming and overlays</li>
+        <li>Font theming</li>
+        <li>Sound theming</li>
+        <li>Device pixel ratio and icon size</li>
+        <li>Android (Alien Dalvik) DPI</li>
+        <li>Recovery tools</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>UI Themer is free software under the <a href="https://github.com/uithemer/sailfishos-uithemer/blob/main/LICENSE">GPL-3.0</a>.</p>
+    <p><a href="https://github.com/uithemer">uithemer on GitHub</a></p>
+  </footer>
+</body>
+</html>
